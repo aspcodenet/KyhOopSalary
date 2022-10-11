@@ -1,20 +1,14 @@
 ﻿namespace KyhOopSalary;
 
-public class Employee
+public class MonthlyEmployee : Employee
 {
-    private string _namn;
-    private DateTime _birthDate;
-    private DateTime _employeeDate;
     private int _monthlySalary;
 
-    public Employee(string namn, DateTime birthDate, DateTime employeeDate, int monthlySalary)
+    public MonthlyEmployee(string namn, DateTime birthDate, DateTime employeeDate, int monthlySalary)
+    :base(namn, birthDate, employeeDate)
     {
-        _namn = namn;
-        _birthDate = birthDate;
-        _employeeDate = employeeDate;
         _monthlySalary = monthlySalary;
     }
-
     public int CalculateSalary()
     {
         var salary = _monthlySalary;
@@ -28,4 +22,20 @@ public class Employee
         }
         return salary;
     }
+
+}
+
+public class Employee
+{
+    private string _namn;
+    protected DateTime _birthDate;
+    protected DateTime _employeeDate;
+
+    public Employee(string namn, DateTime birthDate, DateTime employeeDate)
+    {
+        _namn = namn;
+        _birthDate = birthDate;
+        _employeeDate = employeeDate;
+    }
+
 }
